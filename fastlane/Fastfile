@@ -1,0 +1,56 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  lane :beta do
+    begin
+      # 인증서 및 프로비저닝 프로파일
+      get_certificates
+      get_provisioning_profile
+  
+      # 빌드번호(년월일시분초)
+      increment_build_number(xcodeproj: "Fastlane-Example.xcodeproj", build_number: date_based_build_number)
+
+      # 앱 빌드 및 TestFlight 업로드
+      build_app(
+        workspace: "Fastlane-Example.xcworkspace",
+        scheme: "Fastlane-Example"
+      )
+      upload_to_testflight
+  
+      # 성공 메시지
+      slack(
+        message: "✅ Fastlane TestFlight Build Success!",
+        success: true,
+        slack_url: "https://hooks.slack.com/services/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"
+      )
+    rescue => error
+      # 실패 메시지
+      slack(
+        message: "❌ Fastlane TestFlight Build Failed!\nError: #{error}",
+        success: false,
+        slack_url: "https://hooks.slack.com/services/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"
+      )
+      raise error # 실패를 Fastlane에 전달
+    end
+  end
+
+  def date_based_build_number
+    # 현재 날짜와 시간을 '년월일시분초' 형식으로 변환
+    DateTime.now.strftime('%Y%m%d%H%M%S')
+  end
+end
