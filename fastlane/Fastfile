@@ -31,22 +31,26 @@ platform :ios do
         scheme: "Fastlane-Example"
       )
       upload_to_testflight
-  
       # 성공 메시지
-      slack(
-        message: "✅ Fastlane TestFlight Build Success!",
-        success: true,
-        slack_url: "https://hooks.slack.com/services/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"
-      )
+      send_slack_message("✅ TestFlight 배포 됐습니다 😎")
     rescue => error
       # 실패 메시지
-      slack(
-        message: "❌ Fastlane TestFlight Build Failed!\nError: #{error}",
-        success: false,
-        slack_url: "https://hooks.slack.com/services/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"
-      )
+      send_slack_message("❌ TestFlight 배포 실패했습니다 😭\nError: #{error}", false)
       raise error # 실패를 Fastlane에 전달
     end
+  end
+
+  def send_slack_message(message, success = true)
+    version = get_version_number(xcodeproj: "Fastlane-Example.xcodeproj") # Xcode 프로젝트의 버전 가져오기
+    build_number = get_build_number(xcodeproj: "Fastlane-Example.xcodeproj") # 빌드 번호 가져오기
+
+    full_message = "iOS #{version}(#{build_number})\n\n#{message}"
+
+    slack(
+      message: full_message,
+      success: success,
+      slack_url: ENV['SLACK_URL']
+    )
   end
 
   def date_based_build_number
