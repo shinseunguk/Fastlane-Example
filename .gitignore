@@ -1,0 +1,4 @@
+# 인증서 및 AppStore 정보 관련 ignore
+.env
+*.cer
+*.mobileprovision
