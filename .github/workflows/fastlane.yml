@@ -35,4 +35,8 @@ jobs:
         APPLE_ID: ${{ secrets.APPLE_ID }}
         APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
         SLACK_URL: ${{ secrets.SLACK_URL }}
+        FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
+        APP_IDENTIFIER: ${{ secrets.APP_IDENTIFIER }}
+        ITC_TEAM_ID: ${{ secrets.ITC_TEAM_ID }}
+        TEAM_ID: ${{ secrets.TEAM_ID }}
       run: bundle exec fastlane beta

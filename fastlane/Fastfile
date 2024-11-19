@@ -13,6 +13,9 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
+fastlane_require 'active_support'
+fastlane_require 'active_support/core_ext/time'
+
 default_platform(:ios)
 
 platform :ios do
@@ -53,6 +56,6 @@ platform :ios do
   end
 
   def date_based_build_number
-    DateTime.now.strftime("%Y.%m%d.%H%M") # 2021년 4월 17일 14시 53분 -> 2021.0417.1453
+    Time.now.in_time_zone("Asia/Seoul").strftime("%Y.%m%d.%H%M")
   end
 end
