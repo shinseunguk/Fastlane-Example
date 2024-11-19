@@ -54,7 +54,6 @@ platform :ios do
   end
 
   def date_based_build_number
-    # 현재 날짜와 시간을 '년월일시분초' 형식으로 변환
-    DateTime.now.strftime('%Y%m%d%H%M%S')
+    DateTime.now.strftime("%Y.%m%d.%H%M") # 2021년 4월 17일 14시 53분 -> 2021.0417.1453
   end
 end
