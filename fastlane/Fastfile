@@ -16,14 +16,22 @@
 fastlane_require 'active_support'
 fastlane_require 'active_support/core_ext/time'
 
+#✅ 상수
+
+SLACK_URL = ENV['SLACK_URL']
+
+KEYCHAIN_NAME = ENV['KEYCHAIN_NAME']
+KEYCHAIN_PASSWORD = ENV['KEYCHAIN_PASSWORD']
+
+APP_IDENTIFIER = ENV['APP_IDENTIFIER']
+
+
 default_platform(:ios)
 
 platform :ios do
   lane :beta do
     begin
-      # 인증서 및 프로비저닝 프로파일
-      get_certificates
-      get_provisioning_profile
+      sync_code_signing(type: "appstore")
   
       # 빌드번호(년월일시분초)
       increment_build_number(xcodeproj: "Fastlane-Example.xcodeproj", build_number: date_based_build_number)
@@ -51,7 +59,7 @@ platform :ios do
     slack(
       message: full_message,
       success: success,
-      slack_url: ENV['SLACK_URL']
+      slack_url: "#{SLACK_URL}"
     )
   end
 
