@@ -63,7 +63,8 @@ platform :ios do
         export_options: {
           method: "app-store",
           signingStyle: "automatic"
-        }
+        },
+        export_xcargs: "-allowProvisioningUpdates"  # 자동 서명 업데이트 허용
       )
 
       upload_to_testflight
