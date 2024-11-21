@@ -28,12 +28,24 @@ APP_IDENTIFIER = ENV['APP_IDENTIFIER']
 
 MATCH_GIT_BASIC_AUTHORIZATION = ENV['MATCH_GIT_BASIC_AUTHORIZATION']
 
+APP_STORE_CONNECT_API_KEY_KEY_ID = ENV['APP_STORE_CONNECT_API_KEY_KEY_ID']
+APP_STORE_CONNECT_API_KEY_ISSUER_ID = ENV['APP_STORE_CONNECT_API_KEY_ISSUER_ID']
+APP_STORE_CONNECT_API_KEY_KEY = ENV['APP_STORE_CONNECT_API_KEY_KEY']
+
 
 default_platform(:ios)
 
 platform :ios do
   lane :beta do
     begin
+      app_store_connect_api_key(
+        key_id: "#{APP_STORE_CONNECT_API_KEY_KEY_ID}",
+        issuer_id: "#{APP_STORE_CONNECT_API_KEY_ISSUER_ID}",
+        key_filepath: "./AuthKey_DPYP99L82T.p8",
+        duration: 1200, # optional (maximum 1200)
+        in_house: false # optional but may be required if using match/sigh
+      )
+
       match(type: "appstore")
       sync_code_signing(type: "appstore")
       
