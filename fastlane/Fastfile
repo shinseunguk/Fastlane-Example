@@ -31,6 +31,7 @@ MATCH_GIT_BASIC_AUTHORIZATION = ENV['MATCH_GIT_BASIC_AUTHORIZATION']
 APP_STORE_CONNECT_API_KEY_KEY_ID = ENV['APP_STORE_CONNECT_API_KEY_KEY_ID']
 APP_STORE_CONNECT_API_KEY_ISSUER_ID = ENV['APP_STORE_CONNECT_API_KEY_ISSUER_ID']
 APP_STORE_CONNECT_API_KEY_KEY = ENV['APP_STORE_CONNECT_API_KEY_KEY']
+APP_STORE_CONNECT_API_KEY
 
 
 default_platform(:ios)
@@ -41,7 +42,12 @@ platform :ios do
       app_store_connect_api_key(
         key_id: "#{APP_STORE_CONNECT_API_KEY_KEY_ID}",
         issuer_id: "#{APP_STORE_CONNECT_API_KEY_ISSUER_ID}",
-        key_filepath: "/AuthKey_DPYP99L82T.p8"
+        key_content: "-----BEGIN PRIVATE KEY-----
+        MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgD02o/Pu3bWBADqux
+        +jjmR+gdnvd3u8coIJegzO8GyV+gCgYIKoZIzj0DAQehRANCAARricPXcG8oLm/j
+        JmO8v8ho/9dqUe6eGYMMPJJcPGV38ejv4BBlPMnTEQy2HTAlCKztD26fDy2EU6LL
+        qIQbFsKG
+        -----END PRIVATE KEY-----"
       )
 
       pilot
