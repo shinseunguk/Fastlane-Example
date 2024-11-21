@@ -39,6 +39,7 @@ jobs:
       env:
         APPLE_ID: ${{ secrets.APPLE_ID }}
         APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
+        FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
         SLACK_URL: ${{ secrets.SLACK_URL }}
         FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
         APP_IDENTIFIER: ${{ secrets.APP_IDENTIFIER }}
