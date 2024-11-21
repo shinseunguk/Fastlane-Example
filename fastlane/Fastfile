@@ -34,13 +34,6 @@ default_platform(:ios)
 platform :ios do
   lane :beta do
     begin
-
-      print("----------------------------\n")
-      print("#{MATCH_GIT_BASIC_AUTHORIZATION}\n")
-      print("#{APP_IDENTIFIER}\n")
-      print("#{KEYCHAIN_PASSWORD}\n")
-      print("----------------------------")
-
       match(type: "appstore")
       sync_code_signing(type: "appstore")
       
