@@ -30,7 +30,6 @@ MATCH_GIT_BASIC_AUTHORIZATION = ENV['MATCH_GIT_BASIC_AUTHORIZATION']
 
 APP_STORE_CONNECT_API_KEY_KEY_ID = ENV['APP_STORE_CONNECT_API_KEY_KEY_ID']
 APP_STORE_CONNECT_API_KEY_ISSUER_ID = ENV['APP_STORE_CONNECT_API_KEY_ISSUER_ID']
-APP_STORE_CONNECT_API_KEY_KEY = ENV['APP_STORE_CONNECT_API_KEY_KEY']
 APP_STORE_CONNECT_API_KEY_CONTENT = ENV['APP_STORE_CONNECT_API_KEY_CONTENT']
 
 
@@ -44,8 +43,6 @@ platform :ios do
         issuer_id: "#{APP_STORE_CONNECT_API_KEY_ISSUER_ID}",
         key_content: "#{APP_STORE_CONNECT_API_KEY_CONTENT}"
       )
-
-      pilot
 
       match(type: "appstore")
       sync_code_signing(type: "appstore")
@@ -90,5 +87,11 @@ platform :ios do
     print("#{APP_IDENTIFIER}\n")
     print("#{KEYCHAIN_PASSWORD}\n")
     print("----------------------------")
+  end
+
+  lane :testLane do
+    print("🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨")
+    print("Base64_encode_of_#{APP_STORE_CONNECT_API_KEY_CONTENT}")
+    print("🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨")
   end
 end
