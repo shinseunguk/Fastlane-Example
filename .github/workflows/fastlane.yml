@@ -41,6 +41,6 @@ jobs:
         APP_IDENTIFIER: ${{ secrets.APP_IDENTIFIER }}
         ITC_TEAM_ID: ${{ secrets.ITC_TEAM_ID }}
         TEAM_ID: ${{ secrets.TEAM_ID }}
-        GIT_BASIC_AUTHORIZATION: ${{ secrets.GIT_BASIC_AUTHORIZATION }}
+        MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
       run: bundle exec fastlane beta
