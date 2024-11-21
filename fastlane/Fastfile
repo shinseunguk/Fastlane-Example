@@ -50,7 +50,7 @@ platform :ios do
       
       # 빌드번호(년월일시분초)
       increment_build_number(xcodeproj: "Fastlane-Example.xcodeproj", build_number: date_based_build_number)
-      cocoapods(clean_install: true, use_bundle_exec: false)
+      # cocoapods(clean_install: true, use_bundle_exec: false)
 
       # 앱 빌드 및 TestFlight 업로드
       build_app(
