@@ -42,12 +42,7 @@ platform :ios do
       app_store_connect_api_key(
         key_id: "#{APP_STORE_CONNECT_API_KEY_KEY_ID}",
         issuer_id: "#{APP_STORE_CONNECT_API_KEY_ISSUER_ID}",
-        key_content: "-----BEGIN PRIVATE KEY-----
-        MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgD02o/Pu3bWBADqux
-        +jjmR+gdnvd3u8coIJegzO8GyV+gCgYIKoZIzj0DAQehRANCAARricPXcG8oLm/j
-        JmO8v8ho/9dqUe6eGYMMPJJcPGV38ejv4BBlPMnTEQy2HTAlCKztD26fDy2EU6LL
-        qIQbFsKG
-        -----END PRIVATE KEY-----"
+        key_content: "-----BEGIN PRIVATE KEY-----MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgD02o/Pu3bWBADqux+jjmR+gdnvd3u8coIJegzO8GyV+gCgYIKoZIzj0DAQehRANCAARricPXcG8oLm/jJmO8v8ho/9dqUe6eGYMMPJJcPGV38ejv4BBlPMnTEQy2HTAlCKztD26fDy2EU6LLqIQbFsKG-----END PRIVATE KEY-----"
       )
 
       pilot
