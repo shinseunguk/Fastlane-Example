@@ -41,9 +41,7 @@ platform :ios do
       app_store_connect_api_key(
         key_id: "#{APP_STORE_CONNECT_API_KEY_KEY_ID}",
         issuer_id: "#{APP_STORE_CONNECT_API_KEY_ISSUER_ID}",
-        key_filepath: "./AuthKey_DPYP99L82T.p8",
-        duration: 1200, # optional (maximum 1200)
-        in_house: true # optional but may be required if using match/sigh
+        key_filepath: "AuthKey_DPYP99L82T.p8"
       )
 
       pilot
