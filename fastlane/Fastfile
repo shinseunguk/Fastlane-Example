@@ -45,16 +45,27 @@ platform :ios do
       )
 
       match(type: "appstore")
-      sync_code_signing(type: "appstore")
+      # sync_code_signing(type: "appstore")
       
       # 빌드번호(년월일시분초)
       increment_build_number(xcodeproj: "Fastlane-Example.xcodeproj", build_number: date_based_build_number)
 
       # 앱 빌드 및 TestFlight 업로드
-      build_app(
-        workspace: "Fastlane-Example.xcworkspace",
-        scheme: "Fastlane-Example"
+      # build_app(
+      #   workspace: "Fastlane-Example.xcworkspace",
+      #   scheme: "Fastlane-Example"
+      # )
+
+      gym(
+      workspace: "Fastlane-Example.xcworkspace",
+      scheme: "Fastlane-Example",
+      configuration: "Release",
+      export_options: {
+        method: "app-store",
+        signingStyle: "manual"
+      }
       )
+
       upload_to_testflight
       # 성공 메시지
       send_slack_message("✅ TestFlight 배포 됐습니다 😎")
