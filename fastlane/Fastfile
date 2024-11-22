@@ -54,7 +54,8 @@ platform :ios do
       # 앱 빌드 및 TestFlight 업로드
       build_app(
         workspace: "Fastlane-Example.xcworkspace",
-        scheme: "Fastlane-Example"
+        scheme: "Fastlane-Example",
+        xcargs: "-allowProvisioningUpdates"
       )
 
       upload_to_testflight
