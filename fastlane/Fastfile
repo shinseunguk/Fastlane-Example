@@ -52,21 +52,17 @@ platform :ios do
       # cocoapods(clean_install: true, use_bundle_exec: false)
 
       # 앱 빌드 및 TestFlight 업로드
-      # build_app(
-      #   workspace: "Fastlane-Example.xcworkspace",
-      #   scheme: "Fastlane-Example",
-      #   xcargs: "-allowProvisioningUpdates"
-      # )
-
-      gym(
-      workspace: "Fastlane-Example.xcworkspace",
-      scheme: "Fastlane-Example",
-      configuration: "Release",
-      export_options: {
+      build_app(
+        workspace: "Fastlane-Example.xcworkspace",
+        scheme: "Fastlane-Example",
+        export_options: {
         method: "app-store",
-        signingStyle: "manual"
+        signingStyle: "manual",
+        provisioningProfiles: {
+          "com.ukseung.Fastlane" => "match AppStore com.ukseung.Fastlane",
+        }
       }
-    )
+      )
 
       upload_to_testflight
       # 성공 메시지
