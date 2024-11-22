@@ -45,7 +45,6 @@ platform :ios do
       )
 
       match(type: "appstore")
-      match(type: "development")
       sync_code_signing(type: "appstore")
       
       # 빌드번호(년월일시분초)
@@ -82,19 +81,5 @@ platform :ios do
 
   def date_based_build_number
     Time.now.in_time_zone("Asia/Seoul").strftime("%Y.%m%d.%H%M")
-  end
-
-  lane :asd do
-    print("----------------------------\n")
-    print("#{MATCH_GIT_BASIC_AUTHORIZATION}\n")
-    print("#{APP_IDENTIFIER}\n")
-    print("#{KEYCHAIN_PASSWORD}\n")
-    print("----------------------------")
-  end
-
-  lane :testLane do
-    print("🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨")
-    print("Base64_encode_of_#{APP_STORE_CONNECT_API_KEY_CONTENT}")
-    print("🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨")
   end
 end
