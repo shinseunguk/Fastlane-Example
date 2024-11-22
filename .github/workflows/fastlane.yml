@@ -35,9 +35,6 @@ jobs:
     - name: Output Fastlane environment
       run: bundle exec fastlane env
 
-    - name: fastlane beta --verbose
-      run: bundle exec fastlane beta --verbose
-
     - name: Run Fastlane
       env:
         APPLE_ID: ${{ secrets.APPLE_ID }}
