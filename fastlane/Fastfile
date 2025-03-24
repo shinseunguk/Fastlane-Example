@@ -84,7 +84,7 @@ platform :ios do
         }
       )
 
-      upload_to_testflight
+      upload_to_testflight(skip_waiting_for_build_processing: true)
       send_slack_message("✅ TestFlight 배포 됐습니다 😎")
     rescue => error
       # 실패 메시지
