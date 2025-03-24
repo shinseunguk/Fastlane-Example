@@ -38,6 +38,11 @@ default_platform(:ios)
 platform :ios do
   lane :beta do
     begin
+
+      puts "key_id: #{APP_STORE_CONNECT_API_KEY_KEY_ID}"
+      puts "issuer_id: #{APP_STORE_CONNECT_API_KEY_ISSUER_ID}"
+      puts "key_content: #{APP_STORE_CONNECT_API_KEY_CONTENT}"
+      
       app_store_connect_api_key(
         key_id: "#{APP_STORE_CONNECT_API_KEY_KEY_ID}",
         issuer_id: "#{APP_STORE_CONNECT_API_KEY_ISSUER_ID}",
