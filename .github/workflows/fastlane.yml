@@ -45,6 +45,7 @@ jobs:
         APP_IDENTIFIER: ${{ secrets.APP_IDENTIFIER }}
         ITC_TEAM_ID: ${{ secrets.ITC_TEAM_ID }}
         TEAM_ID: ${{ secrets.TEAM_ID }}
+        GIT_PERSONAL_TOKEN: ${{ secrets.GIT_PERSONAL_TOKEN }}
         MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
         MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         MATCH_GIT_PASSWORD: ${{ secrets.MATCH_GIT_PASSWORD }}

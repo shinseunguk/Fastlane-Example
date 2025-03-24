@@ -5,42 +5,47 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000171">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000181">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: app_store_connect_api_key" time="0.004138">
+      <testcase classname="fastlane.lanes" name="1: app_store_connect_api_key" time="0.004658">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: match" time="5.015451">
+      <testcase classname="fastlane.lanes" name="2: is_ci" time="0.000584">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: increment_build_number" time="0.157183">
+      <testcase classname="fastlane.lanes" name="3: match" time="4.586581">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: build_app" time="36.366055">
+      <testcase classname="fastlane.lanes" name="4: increment_build_number" time="0.148475">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: upload_to_testflight" time="157.445862">
+      <testcase classname="fastlane.lanes" name="5: build_app" time="31.066073">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: get_version_number" time="0.01884">
+      <testcase classname="fastlane.lanes" name="6: upload_to_testflight" time="193.568258">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="7: slack" time="0.410713">
+      <testcase classname="fastlane.lanes" name="7: get_version_number" time="0.019955">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="8: slack" time="0.422751">
         
       </testcase>
     
