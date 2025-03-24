@@ -72,12 +72,12 @@ platform :ios do
 
       # 앱 빌드 및 TestFlight 업로드
       build_app(
-        # workspace: "Fastlane-Example.xcworkspace",
-        scheme: "Release",
+        workspace: "Fastlane-Example.xcworkspace",
+        scheme: "Fastlane-Example",
         export_method: "app-store",
         export_options: {
-          # method: "app-store",
-          # signingStyle: "manual",
+          method: "app-store",
+          signingStyle: "manual",
           provisioningProfiles: {
             "com.ukseung.Fastlane" => "match AppStore com.ukseung.Fastlane"
           }
