@@ -78,9 +78,10 @@ platform :ios do
         export_options: {
           method: "app-store",
           signingStyle: "manual",
-          provisioningProfiles: {
-            "com.ukseung.Fastlane" => "match AppStore com.ukseung.Fastlane"
-          }
+          # provisioningProfiles: {
+          #   "com.ukseung.Fastlane" => "match AppStore com.ukseung.Fastlane"
+          # }
+          signingStyle: "automatic"
         }
       )
 
