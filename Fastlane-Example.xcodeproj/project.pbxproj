@@ -39,6 +39,7 @@
 /* Begin PBXFileReference section */
 		9065C459202DF5C5D3424B4A /* Pods-Fastlane-ExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fastlane-ExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-Fastlane-ExampleTests/Pods-Fastlane-ExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A77F00E012348162226EAD28 /* Pods-Fastlane-ExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fastlane-ExampleTests.release.xcconfig"; path = "Target Support Files/Pods-Fastlane-ExampleTests/Pods-Fastlane-ExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		AC3707EA2D922E000034AC4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		ACBE8A2B2CE723B0001B8110 /* Fastlane-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fastlane-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACBE8A2E2CE723B0001B8110 /* Fastlane_ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fastlane_ExampleApp.swift; sourceTree = "<group>"; };
 		ACBE8A302CE723B0001B8110 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -124,6 +125,7 @@
 		ACBE8A2D2CE723B0001B8110 /* Fastlane-Example */ = {
 			isa = PBXGroup;
 			children = (
+				AC3707EA2D922E000034AC4C /* Info.plist */,
 				ACBE8A2E2CE723B0001B8110 /* Fastlane_ExampleApp.swift */,
 				ACBE8A302CE723B0001B8110 /* ContentView.swift */,
 				ACBE8A322CE723B2001B8110 /* Assets.xcassets */,
@@ -543,6 +545,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = DC8GM39E89;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Fastlane-Example/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -578,6 +581,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = DC8GM39E89;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Fastlane-Example/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
