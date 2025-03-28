@@ -35,7 +35,7 @@ jobs:
     - name: Output Fastlane environment
       run: bundle exec fastlane env
 
-    - name: Run Fastlane
+    - name: Run upload_testflight
       env:
         APPLE_ID: ${{ secrets.APPLE_ID }}
         APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
@@ -52,4 +52,4 @@ jobs:
         APP_STORE_CONNECT_API_KEY_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}
         APP_STORE_CONNECT_API_KEY_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}
         APP_STORE_CONNECT_API_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT }}
-      run: bundle exec fastlane beta
+      run: bundle exec fastlane upload_testflight
