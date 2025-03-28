@@ -93,6 +93,79 @@ platform :ios do
     end
   end
 
+    # ✅ App Store 배포 Lane
+    lane :release_app_store do
+      begin
+        app_store_connect_api_key(
+          key_id: "#{APP_STORE_CONNECT_API_KEY_KEY_ID}",
+          issuer_id: "#{APP_STORE_CONNECT_API_KEY_ISSUER_ID}",
+          key_content: "#{APP_STORE_CONNECT_API_KEY_CONTENT}"
+        )
+  
+        setup_ci
+  
+        match(
+          storage_mode: "git",
+          type: "appstore",
+          app_identifier: ["com.ukseung.Fastlane"],
+          readonly: false,
+          git_basic_authorization: Base64.strict_encode64("#{GIT_PERSONAL_TOKEN}"),
+          generate_apple_certs: false
+        )
+  
+        increment_build_number(
+          xcodeproj: "Fastlane-Example.xcodeproj",
+          build_number: date_based_build_number
+        )
+  
+        update_project_team(
+          path: "../Fastlane-Example/Fastlane-Example.xcodeproj",
+          teamid: "#{TEAM_ID}"
+        )
+  
+        # 앱 빌드 및 App Store 업로드
+        build_app(
+          workspace: "Fastlane-Example.xcworkspace",
+          scheme: "Fastlane-Example",
+          export_method: "app-store",
+          export_options: {
+            method: "app-store",
+            signingStyle: "manual",
+            provisioningProfiles: {
+              "com.ukseung.Fastlane" => "match AppStore com.ukseung.Fastlane"
+            }
+          }
+        )
+  
+        # 8. 앱스토어 업로드 🎉
+        deliver(
+          submit_for_review: true,
+          force: true,
+          skip_screenshots: true,
+          automatic_release: true,
+          precheck_include_in_app_purchases: false,
+          copyright: "© #{Time.now.year} COMPANY-NAME, Inc.",
+          release_notes: {
+            "en-US" => "WHATS NEW"
+            },
+          app_review_information: {
+            demo_user: "demo@user.net",
+            demo_password: "DEMO-PASSWORD"
+            },
+          submission_information: {    
+            export_compliance_encryption_updated: false,
+            export_compliance_uses_encryption: false,
+            add_id_info_uses_idfa: false
+            }
+          )
+  
+        send_slack_message("✅ App Store 배포 완료 😎")
+      rescue => error
+        send_slack_message("❌ App Store 배포 실패 😭\nError: #{error}", false)
+        raise error
+      end
+    end
+
   def send_slack_message(message, success = true)
     version = get_version_number(xcodeproj: "Fastlane-Example.xcodeproj") # Xcode 프로젝트의 버전 가져오기
 
