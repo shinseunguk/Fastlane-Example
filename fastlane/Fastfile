@@ -147,17 +147,17 @@ platform :ios do
           copyright: "© #{Time.now.year} COMPANY-NAME, Inc.",
           release_notes: {
             "en-US" => "WHATS NEW"
-            },
+          },
           app_review_information: {
             demo_user: "demo@user.net",
             demo_password: "DEMO-PASSWORD"
-            },
+          },
           submission_information: {    
             export_compliance_encryption_updated: false,
             export_compliance_uses_encryption: false,
             add_id_info_uses_idfa: false
-            }
-          )
+          }
+        )
   
         send_slack_message("✅ App Store 배포 완료 😎")
       rescue => error
