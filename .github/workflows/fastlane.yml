@@ -38,6 +38,7 @@ jobs:
       run: bundle exec fastlane env
 
     - name: Run upload_testflight
+      if: github.ref == 'refs/heads/develop'
       env:
         APPLE_ID: ${{ secrets.APPLE_ID }}
         APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}

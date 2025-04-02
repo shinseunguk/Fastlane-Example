@@ -150,7 +150,7 @@ platform :ios do
         )
   
         # ✅ 앱 빌드 및 Export
-        # Xcode 프로젝트를 빌드하고 .ipa 파일을 생성하여 TestFlight에 업로드 준비
+        # Xcode 프로젝트를 빌드하고 .ipa 파일을 생성하여 AppStore에 업로드 준비
         build_app(
           workspace: "Fastlane-Example.xcworkspace",
           scheme: "Fastlane-Example",
@@ -164,7 +164,7 @@ platform :ios do
           }
         )
   
-        # ✅ 앱스토어 업로드 🎉
+        # ✅ AppStore 업로드 🎉
         deliver(
           submit_for_review: true,
           force: true,
