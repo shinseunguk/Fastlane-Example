@@ -113,14 +113,19 @@ platform :ios do
     # ✅ App Store 배포 Lane
     lane :release_app_store do
       begin
+	# ✅ App Store Connect API 키 설정
         app_store_connect_api_key(
           key_id: "#{APP_STORE_CONNECT_API_KEY_KEY_ID}",
           issuer_id: "#{APP_STORE_CONNECT_API_KEY_ISSUER_ID}",
           key_content: "#{APP_STORE_CONNECT_API_KEY_CONTENT}"
         )
   
+	# ✅ CI 환경 설정
+        # CI/CD 환경에서 필요한 기본 설정 수행 (예: Xcode 설정, 환경 변수 설정 등)
         setup_ci
   
+	# ✅ 코드 서명 인증서 및 프로비저닝 프로필 관리
+        # match를 사용하여 Apple Developer 계정에서 인증서 및 프로비저닝 프로필을 가져옴
         match(
           storage_mode: "git",
           type: "appstore",
@@ -130,17 +135,22 @@ platform :ios do
           generate_apple_certs: false
         )
   
+	# ✅ 빌드 번호 업데이트 (년월일시분초 기반)
+        # Fastlane의 increment_build_number를 사용하여 빌드 번호를 자동 증가시킴
         increment_build_number(
           xcodeproj: "Fastlane-Example.xcodeproj",
           build_number: date_based_build_number
         )
   
+	# ✅ 프로젝트의 팀 ID 업데이트
+        # Xcode 프로젝트의 팀 ID를 설정하여 코드 서명 오류 방지
         update_project_team(
           path: "../Fastlane-Example/Fastlane-Example.xcodeproj",
           teamid: "#{TEAM_ID}"
         )
   
-        # 앱 빌드 및 App Store 업로드
+        # ✅ 앱 빌드 및 Export
+        # Xcode 프로젝트를 빌드하고 .ipa 파일을 생성하여 TestFlight에 업로드 준비
         build_app(
           workspace: "Fastlane-Example.xcworkspace",
           scheme: "Fastlane-Example",
@@ -154,7 +164,7 @@ platform :ios do
           }
         )
   
-        # 8. 앱스토어 업로드 🎉
+        # ✅ 앱스토어 업로드 🎉
         deliver(
           submit_for_review: true,
           force: true,
@@ -183,6 +193,7 @@ platform :ios do
       end
     end
 
+  # ✅ Slack 메시지 전송 함수
   def send_slack_message(message, success = true)
     version = get_version_number(xcodeproj: "Fastlane-Example.xcodeproj") # Xcode 프로젝트의 버전 가져오기
 
@@ -195,6 +206,7 @@ platform :ios do
     )
   end
 
+  # ✅ 날짜 기반 빌드 번호 생성 함수
   def date_based_build_number
     Time.now.in_time_zone("Asia/Seoul").strftime("%Y.%m%d.%H%M")
   end
